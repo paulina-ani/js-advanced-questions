@@ -185,3 +185,87 @@ console.log("bb === cc", bb === cc); // false
 console.log("aa === cc", aa === cc); // true
 console.log("aa == dd", aa == dd); // true
 console.log("aa === dd", aa === dd); // true
+
+// 14.
+class Chameleon {
+  static colorChange(newColor) {
+    this.newColor = newColor;
+    return this.newColor;
+  }
+
+  constructor({ newColor = "green" } = {}) {
+    this.newColor = newColor;
+  }
+}
+
+const freddie = new Chameleon({ newColor: "purple" });
+//console.log(freddie.colorChange("orange")); //TypeError
+
+// 15.
+class Chameleon2 {
+  changeColor(newColor) {
+    this.newColor = newColor;
+    return this.newColor;
+  }
+
+  constructor({ newColor = "green" } = {}) {
+    this.newColor = newColor;
+  }
+}
+
+const zoya = new Chameleon2({ newColor: "purple" });
+console.log(zoya.changeColor("orange")); // orange
+
+// 16.
+let greeting;
+grettign = {}; // Typo!
+//console.log(greetign);
+console.log(greeting);
+
+// 17.
+function bark() {
+  console.log("Woof!");
+}
+
+bark.animal = "dog";
+console.log(bark.animal); //dog
+
+// 18.
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+const member = new Person("Lydia", "Hallie");
+Person.getFullName = function() {
+  return `${this.firstName} ${this.lastName}`;
+};
+
+//console.log(member.getFullName()); // TypeError
+
+// 19.
+function Person2(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+const member2 = new Person2("Lydia", "Hallie");
+Person2.prototype.getFullName = function() {
+  return `${this.firstName} ${this.lastName}`;
+};
+
+console.log(member2.getFullName()); // Lydia Hallie
+
+// 20.
+let o = {
+  a: 2,
+  m: function(b) {
+    return this.a + 1;
+  }
+};
+console.log(o.m()); // 3
+
+let p = Object.create(o);
+
+p.a = 12;
+console.log(p.m()); // 13
