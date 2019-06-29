@@ -118,7 +118,8 @@ object.counter();*/
 /*var object2 = {
   id: 10,
   counter: function counter() {
-    setTimeout(function() {
+    setTimeout(
+      function() {
       console.log(this.id);
     }, 1000); // zmiana kontekstu this
   }
@@ -219,7 +220,7 @@ console.log(zoya.changeColor("orange")); // orange
 // 16.
 let greeting;
 grettign = {}; // Typo!
-//console.log(greetign);
+console.log(greetign);
 console.log(greeting);
 
 // 17.
