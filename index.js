@@ -220,7 +220,7 @@ console.log(zoya.changeColor("orange")); // orange
 // 16.
 let greeting;
 grettign = {}; // Typo!
-console.log(greetign);
+// console.log(greetign); //ReferenceError: greetign is not defined
 console.log(greeting);
 
 // 17.
@@ -242,7 +242,7 @@ Person.getFullName = function() {
   return `${this.firstName} ${this.lastName}`;
 };
 
-//console.log(member.getFullName()); // TypeError
+// console.log(member.getFullName()); // TypeError
 
 // 19.
 function Person2(firstName, lastName) {
@@ -254,6 +254,11 @@ const member2 = new Person2("Lydia", "Hallie");
 Person2.prototype.getFullName = function() {
   return `${this.firstName} ${this.lastName}`;
 };
+console.log(member2);
+/* Person2 {
+  firstName: "Lydia",
+  lastName: "Hallie
+}*/
 
 console.log(member2.getFullName()); // Lydia Hallie
 
@@ -270,3 +275,69 @@ let p = Object.create(o);
 
 p.a = 12;
 console.log(p.m()); // 13
+
+// 21
+function Person3(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+const lydia = new Person3("Lydia", "Hallie");
+/* Person3 {
+  firstName: "Lydia",
+  lastName: "Hallie",
+} */
+const sarah = Person3("Sarah", "Smith"); // undefined
+
+console.log(lydia);
+console.log(sarah);
+
+/* 22. What are the three phases of event propagation? 
+
+Answer: Capturing > Target > Bubbling
+*/
+
+/* 23. All object have prototypes
+
+Answer: false
+*/
+
+//24.
+function sum(a, b) {
+  return a + b;
+}
+
+console.log(sum(1, "2")); //"12"
+
+// 25.
+let number = 0;
+console.log("number:", number); // 0
+console.log("number++:", number++); // 0
+console.log("++number:", ++number); // 2
+console.log("number:", number); // 2
+console.log("");
+
+let number2 = 0;
+console.log("number2:", number2); // 0
+console.log("number2++:", number2++); // 0
+console.log("number2:", number2); // 1
+console.log("");
+
+let number3 = 0;
+console.log("number3:", number3); // 0
+console.log("number3++:", ++number3); // 1
+console.log("number3:", number3); // 1
+console.log("");
+
+let number4 = 0;
+console.log("number4:", number4); // 0
+console.log("number4++:", ++number4); // 1
+console.log("++number4:", ++number4); // 2
+console.log("number4:", number4); // 2
+console.log("");
+
+let number5 = 0;
+console.log("number5:", number5); // 0
+console.log("number5++:", number5++); // 0
+console.log("++number5:", number5++); // 1
+console.log("number5:", number5); // 2
+console.log("");
