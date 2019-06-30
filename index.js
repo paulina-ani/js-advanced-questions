@@ -183,6 +183,30 @@ e = 3;
 console.log("e", e); // 3
 console.log("f", f); // 2
 
+// 12c.
+const symbol1 = Symbol();
+const symbol2 = Symbol(42);
+const symbol3 = Symbol("foo");
+
+console.log("");
+console.log(typeof symbol1); // symbol
+console.log(typeof symbol2); // symbol
+console.log(typeof symbol3); // symbol
+console.log(symbol1); // SYmbol()
+console.log(symbol2); // Symbol(42)
+console.log(symbol3); // Symbol(foo)
+console.log(Symbol("foo") === Symbol("foo")); // false
+
+// 12d.
+const re = new RegExp("\\w+");
+console.log(re); // /\w+/
+
+const re2 = new RegExp("a+b", "i");
+console.log(re2); // /a+b/i/
+
+const re3 = new RegExp("\\a+b", "i");
+console.log(re3); // /a+b/i/
+
 // 13.
 let aa = 3;
 let bb = new Number(3);
