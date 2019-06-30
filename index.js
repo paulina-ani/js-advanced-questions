@@ -165,14 +165,23 @@ console.log(mouse.name); // Mickey
 console.log(mouse["small"]); // true
 console.log(mouse.size); //undefined
 
-// 12.
+// 12a.
 let c = { greeting: "Hey!" };
 let d;
 
 d = c;
 c.greeting = "Hello";
-console.log(d.greeting); // Output: "Hello"
-console.log(c.greeting); // Output: "Hello"
+console.log("c:", d.greeting); // Output: "Hello"
+console.log("d:", c.greeting); // Output: "Hello"
+
+// 12b.
+let e = 2;
+let f;
+
+f = e;
+e = 3;
+console.log("e", e); // 3
+console.log("f", f); // 2
 
 // 13.
 let aa = 3;
