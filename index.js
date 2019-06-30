@@ -199,13 +199,22 @@ console.log(Symbol("foo") === Symbol("foo")); // false
 
 // 12d.
 const re = new RegExp("\\w+");
-console.log(re); // /\w+/
+console.log("re:", re); // /\w+/
 
 const re2 = new RegExp("a+b", "i");
-console.log(re2); // /a+b/i/
+console.log("re2:", re2); // /a+b/i
 
-const re3 = new RegExp("\\a+b", "i");
-console.log(re3); // /a+b/i/
+let re3 = new RegExp("\\a+b", "i");
+console.log("re3:", re3); // /\a+b/i
+
+let re4 = re3;
+console.log("re4:", re4); // /\a+b/i
+console.log("re4 === re3:", re4 === re3); // true
+
+re4 = new RegExp("\\a+b");
+console.log("re3:", re3); // /\a+b
+console.log("re4:", re4); // /\a+b
+console.log("re3 === r4:", re4 === re3); // false
 
 // 13.
 let aa = 3;
@@ -315,14 +324,14 @@ function Person3(firstName, lastName) {
   this.lastName = lastName;
 }
 const lydia = new Person3("Lydia", "Hallie");
+const sarah = Person3("Sarah", "Smith"); // undefined
+
+console.log(lydia);
 /* Person3 {
   firstName: "Lydia",
   lastName: "Hallie",
 } */
-const sarah = Person3("Sarah", "Smith"); // undefined
-
-console.log(lydia);
-console.log(sarah);
+console.log(sarah); // undefined
 
 /* 22. What are the three phases of event propagation? 
 
