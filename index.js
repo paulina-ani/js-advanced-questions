@@ -383,3 +383,82 @@ console.log("number5++:", number5++); // 0
 console.log("++number5:", number5++); // 1
 console.log("number5:", number5); // 2
 console.log("");
+
+// 26.
+function getPersonInfo(one, two, three) {
+  console.log(one);
+  console.log(two);
+  console.log(three);
+}
+
+const person = "Lydia";
+const age = 21;
+
+getPersonInfo`${person} is ${age} years old`;
+//["", " is ", " years old"]
+// Lydia
+// 21
+
+// 27.
+function checkAge(data) {
+  if (data === { age: 18 }) {
+    console.log("you are an adult");
+  } else if (data == { age: 18 }) {
+    console.log("You are still an adult");
+  } else {
+    console.log("Hmm, you don't have an age I guess");
+  }
+}
+
+checkAge({ age: 18 }); // Hmm, you don't have an age I guess
+
+// 28.
+function getAge(...args) {
+  console.log(typeof args);
+  console.log(args);
+}
+
+getAge(21);
+// object
+// [21];
+
+// 29.
+let a = [1, 2, 3, 4];
+let b = {
+  1: 1,
+  2: 2,
+  3: 3,
+  4: 4
+};
+console.log(typeof a); // object
+console.log(typeof b); //object
+
+// 30a.
+function getAge2() {
+  "use strict";
+  age2 = 21;
+  console.log(age2);
+}
+
+//getAge2(); // ReferenceError: age2 is not defined
+
+//30b.
+function getAge3() {
+  //"use strict";
+  age3 = 21;
+  console.log(age3);
+}
+
+getAge3(); // 21
+
+// 31a.
+const summ = eval("10*10+5");
+console.log(summ); // 105
+console.log(summ.length); // undefined
+console.log(typeof summ); // number
+
+// 31b.
+const summ2 = eval(new String("10*10+5"));
+console.log(summ2); // String{"10*10+5"}
+console.log(summ2.length); // 7
+console.log(typeof summ2); //object
